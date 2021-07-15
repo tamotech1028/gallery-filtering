@@ -1,27 +1,31 @@
 $(function(){
-    // ランダムに表示させたいイメージ名を配列に格納
-    let thumbnaileFileNameArray = [
-        "thumbnail_1",
-        "thumbnail_2",
-        "thumbnail_3",
-        "thumbnail_4",
-        "thumbnail_5",
-    ];
-    // ランダム表示させたいimg要素を定義
-    let $thumbnaileImgElement = $("#random_thumbnaile img");
 
-    // 関数の実行
-    randomImage(thumbnaileFileNameArray, $thumbnaileImgElement)
+    let $filteringBtn = $(".buttons button"),
+        $image = $(".gallery li");
+
+    // フィルタリングボタンがクリックされた時の処理
+    $filteringBtn.click(function(){
+
+        let target = $(this).attr("value");
+
+        // 各画像に対する処理
+        $image.each(function(){
+            // 初期値として全てを非表示にする
+            $(this).animate({
+                "opacity": 0
+            }, 300, function(){
+                $(this).hide();
+                /* 
+                指定の画像要素にクリックされたボタンのvalueのクラスが入っていれば表示
+                value属性がallの場合も表示する
+                */
+                if($(this).hasClass(target) || target == "all") {
+                    $(this).show();
+                    $(this).animate({
+                        "opacity": 1
+                    }, 300);
+                }
+            });
+        });
+    });
 });
-
-
-/****************************
-ランダム表示する関数
-第１引数：イメージ名配列
-第２引数：イメージ要素（jQuery型）
-*****************************/
-function randomImage ( imgArray, $target){
-    var num = Math.random();
-    num = Math.floor(num * imgArray.length);
-    $target.attr("src", "img/" + imgArray[num] + ".jpg");
-};

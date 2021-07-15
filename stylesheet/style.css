@@ -12,6 +12,21 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 header {
   background-color: #484848;
 }
@@ -61,7 +76,7 @@ header ul li a {
   padding: 10vh 0;
 }
 
-.container .content1 {
+.container .content1 .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,25 +88,41 @@ header ul li a {
       flex-wrap: wrap;
 }
 
-.container .content1 .content_title {
-  width: 100%;
+.container .content1 .buttons button {
+  width: 120px;
+  padding: 10px;
+  margin: 10px 30px 10px 0;
+  text-align: center;
+  background-color: #3c3c3c;
+  border: solid 1px #101010;
+  color: white;
+  border-radius: 30px;
 }
 
-.container .content1 .description {
-  width: 70%;
+.container .content2 {
+  padding: 50px 0;
 }
 
-.container .content1 .description p {
-  padding: 10px 20px 10px 0;
-  line-height: 2rem;
-  text-align: justify;
+.container .content2 .gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.container .content1 .thumbnaile {
-  width: 30%;
+.container .content2 .gallery li {
+  padding: 3px;
 }
 
-.container .content1 .thumbnaile img {
-  width: 100%;
+.container .content2 .gallery li img {
+  width: 200px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=style.css.map */
